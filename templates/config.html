@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block head %}
+<style>
+#config {
+  white-space: pre-wrap;
+}
+
+#qrcode-container {
+  max-width: 450px;
+}
+</style>
+{% endblock head %}
+
+{% block body %}
+{% include "partials/_header.html" with heading="Your generated config:" %}
+
+<div class="container my-5">
+  <div class="row">
+    <div class="card col-lg-7 border-dark bg-light mt-3">
+      <div class="card-body">
+        <pre class="m-md-3 config" id="config">{% include "partials/_config.txt" with config=config %}</pre>
+      </div>
+    </div>
+
+    <div class="col-lg-5">
+      <div class="text-center">
+        <img class="img-fluid" style="max-height: 300px;" src="data:image/png;base64,{{ qr_code_b64 }}" alt="Configuration as QR code" download="wg0.png">
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-3">
+    <button type="button" class="btn btn-success" id="copy" data-clipboard-target="#config">Copy</button>
+    <a href="{% url 'configs:index' %}" class="btn btn-secondary">Usage</a>
+  </div>
+</div>
+{% endblock body %}
+
+{% block scripts %}
+<script src="{% static 'js/clipboard.min.js' %}"></script>
+<script>
+new ClipboardJS('#copy');
+</script>
+{% endblock scripts %}

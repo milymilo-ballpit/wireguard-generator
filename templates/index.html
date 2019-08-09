@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% include "partials/_header.html" with heading="How to VPN" %}
+
+<div class="container my-5">
+  <div class="row">
+
+    <div class="col-md-3">
+      <div class="list-group" id="list-tab">
+        <a class="list-group-item list-group-item-action list-group-item-dark active" id="list-linux-list" data-toggle="list" href="#list-linux">Linux</a>
+        <a class="list-group-item list-group-item-action list-group-item-dark" id="list-macos-list" data-toggle="list" href="#list-macos">MacOS</a>
+        <a class="list-group-item list-group-item-action list-group-item-dark" id="list-windows-list" data-toggle="list" href="#list-windows">Windows</a>
+        <a class="list-group-item list-group-item-action list-group-item-dark" id="list-android-list" data-toggle="list" href="#list-android">Android</a>
+      </div>
+    </div>
+
+    <div class="col-md-9 mt-4 mt-md-0">
+      <div class="tab-content">
+        <div class="tab-pane fade show active" id="list-linux">
+          <ol class="list-group-flush p-0">
+            <li class="list-group-item">1. Install wireguard <a href="https://www.wireguard.com/install/" target="_blank">here</a></li>
+            <li class="list-group-item">2. Generate your config <a href="{% url 'configs:generate' %}" target="_blank">here</a>, and paste it to <code>/etc/wireguard/wg0.conf</code></li>
+            <li class="list-group-item">3. Activate the tunnel: <code>sudo wg-quick up wg0</code></li>
+            <li class="list-group-item">4. Test connectivity: <code>ping dns.scinet.ctf</code></li>
+            <li class="list-group-item">5. To close the tunnel use: <code>sudo wg-quick down wg0</code></li>
+          </ol>
+        </div>
+        <div class="tab-pane fade" id="list-macos">
+          <p>MacOS Info</p>
+        </div>
+        <div class="tab-pane fade" id="list-windows">
+          <ol class="list-group-flush p-0">
+            <li class="list-group-item">1. Install wireguard <a href="https://www.wireguard.com/install/" target="_blank">here</a></li>
+            <li class="list-group-item">2. Generate your config <a href="{% url 'configs:generate' %}" target="_blank">here</a></li>
+            <li class="list-group-item">3. Open the wireguard app and press <kbd>CTRL + N</kbd> to add a new tunnel</li>
+            <li class="list-group-item">4. Specify a name, paste your generated config and click Save</li>
+            <li class="list-group-item">5. Select your newly created tunnel and click Activate</li>
+            <li class="list-group-item">6. Test connectivity: <code>ping dns.scinet.ctf</code></li>
+            <li class="list-group-item">7. To close the tunnel re-open the wireguard app, select your connection and click Deactivate</li>
+          </ol>
+        </div>
+        <div class="tab-pane fade" id="list-android">
+          <p class="text-danger font-weight-bold">Note: Although you can access the VPN from a mobile device, we strongly discourage it.</p>
+          <ol class="list-group-flush p-0">
+            <li class="list-group-item">1. Install wireguard <a href="https://play.google.com/store/apps/details?id=com.wireguard.android" target="_blank">here</a></li>
+            <li class="list-group-item">2. Generate your config <a href="{% url 'configs:generate' %}" target="_blank">here</a></li>
+            <li class="list-group-item">3. Using the plus button create new config from QR code by scanning your generated code</li>
+            <li class="list-group-item">4. Activate the tunnel with the switch</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+{% endblock body %}

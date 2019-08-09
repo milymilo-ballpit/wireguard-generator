@@ -1,0 +1,9 @@
+[Interface]
+PrivateKey = {{ config.interface_private_key }}
+Address = {{ config.interface_address }}
+DNS = {{ config.server_dns }}
+
+[Peer]
+PublicKey = {{ config.server_public_key }}
+AllowedIPs = {{ config.server_allowed_ips }}
+Endpoint = {{ config.server_endpoint }}
