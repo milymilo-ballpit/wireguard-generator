@@ -8,16 +8,16 @@
 
     <div class="col-md-3">
       <div class="list-group" id="list-tab">
-        <a class="list-group-item list-group-item-action list-group-item-dark active" id="list-linux-list" data-toggle="list" href="#list-linux">Linux</a>
-        <a class="list-group-item list-group-item-action list-group-item-dark" id="list-macos-list" data-toggle="list" href="#list-macos">MacOS</a>
-        <a class="list-group-item list-group-item-action list-group-item-dark" id="list-windows-list" data-toggle="list" href="#list-windows">Windows</a>
-        <a class="list-group-item list-group-item-action list-group-item-dark" id="list-android-list" data-toggle="list" href="#list-android">Android</a>
+        <a class="list-group-item list-group-item-action list-group-item-dark active" id="linux-list" data-toggle="list" href="#linux">Linux</a>
+        <a class="list-group-item list-group-item-action list-group-item-dark" id="macos-list" data-toggle="list" href="#macos">MacOS</a>
+        <a class="list-group-item list-group-item-action list-group-item-dark" id="windows-list" data-toggle="list" href="#windows">Windows</a>
+        <a class="list-group-item list-group-item-action list-group-item-dark" id="android-list" data-toggle="list" href="#android">Android</a>
       </div>
     </div>
 
     <div class="col-md-9 mt-4 mt-md-0">
       <div class="tab-content">
-        <div class="tab-pane fade show active" id="list-linux">
+        <div class="tab-pane fade show active" id="linux">
           <ol class="list-group-flush p-0">
             <li class="list-group-item">1. Install wireguard <a href="https://www.wireguard.com/install/" target="_blank">here</a></li>
             <li class="list-group-item">2. Generate your config <a href="{% url 'configs:generate' %}" target="_blank">here</a>, and paste it to <code>/etc/wireguard/wg0.conf</code></li>
@@ -26,10 +26,10 @@
             <li class="list-group-item">5. To close the tunnel use: <code>sudo wg-quick down wg0</code></li>
           </ol>
         </div>
-        <div class="tab-pane fade" id="list-macos">
+        <div class="tab-pane fade" id="macos">
           <p>MacOS Info</p>
         </div>
-        <div class="tab-pane fade" id="list-windows">
+        <div class="tab-pane fade" id="windows">
           <ol class="list-group-flush p-0">
             <li class="list-group-item">1. Install wireguard <a href="https://www.wireguard.com/install/" target="_blank">here</a></li>
             <li class="list-group-item">2. Generate your config <a href="{% url 'configs:generate' %}" target="_blank">here</a></li>
@@ -40,7 +40,7 @@
             <li class="list-group-item">7. To close the tunnel re-open the wireguard app, select your connection and click Deactivate</li>
           </ol>
         </div>
-        <div class="tab-pane fade" id="list-android">
+        <div class="tab-pane fade" id="android">
           <p class="text-danger font-weight-bold">Note: Although you can access the VPN from a mobile device, we strongly discourage it.</p>
           <ol class="list-group-flush p-0">
             <li class="list-group-item">1. Install wireguard <a href="https://play.google.com/store/apps/details?id=com.wireguard.android" target="_blank">here</a></li>
@@ -51,7 +51,7 @@
         </div>
       </div>
     </div>
-    
+
   </div>
 </div>
 {% endblock body %}
